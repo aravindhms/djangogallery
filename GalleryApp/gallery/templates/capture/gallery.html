@@ -5,14 +5,16 @@
 <div class="photograhy">
 	<div class="row no-gutters">
 
-		{% for image in image_list %}
+		{% for image,exifdata in allimages.items %}
 
 		<div class="col-md-4 ftco-animate">
 			<a href="{{ image }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ image }});">
 				<div class="overlay"></div>
 				<div class="text text-center">
-					<h3>Work 01</h3>
-					<span class="tag">Model</span>
+					<h3>EXIF</h3>
+					{% for value in exifdata %}
+					<span class="tag">{{ value }}</span><br>
+					{% endfor %}
 				</div>
 			</a>
 		</div>
