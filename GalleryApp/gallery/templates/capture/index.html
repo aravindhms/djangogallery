@@ -27,28 +27,30 @@
     <link rel="stylesheet" href="{% static "css/flaticon.css"%}">
     <link rel="stylesheet" href="{% static "css/icomoon.css"%}">
     <link rel="stylesheet" href="{% static "css/style.css"%}">
+
+    <link rel="shortcut icon" href="{% static 'favicon.ico' type='image/x-icon' %}">
   </head>
   <body>
 
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="/gallery">Aravindh's Gallery</a></h1>
+			<h1 id="colorlib-logo"><a href="/gallery"><img src="{% static 'favicon.png'%}" style="max-width: 100px">Aravindh's Gallery</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li class="colorlib-active"><a href="index.html">Gallery</a></li>
-					<li><a href="gallery.html">Exif</a></li>
+					<li class="colorlib-active"><a href="/gallery">Gallery</a></li>
+					<li><a href="/exif">Exif</a></li>
 
 				</ul>
 			</nav>
 
 			<div class="colorlib-footer">
-				<h3>Follow Us Here!</h3>
+				<h3>Social !</h3>
 				<div class="d-flex justify-content-center">
 					<ul class="d-flex align-items-center">
 						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://www.facebook.com/aravindhms"><i class="icon-facebook"></i></a></li>
 						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://www.twitter.com/aravindhms"><i class="icon-twitter"></i></a></li>
-						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://www.instaram.com/aravindhms"><i class="icon-instagram"></i></a></li>
+						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://www.instagram.com/aravindhms"><i class="icon-instagram"></i></a></li>
 						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://www.linkedin.com/in/aravindhms/"><i class="icon-linkedin"></i></a></li>
 					</ul>
 				</div>
@@ -91,7 +93,6 @@
   <script src="{% static 'js/aos.js' %}"></script>
   <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
   <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-  <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
   <script src="{% static 'js/scrollax.min.js' %}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="{% static 'js/google-map.js' %}"></script>

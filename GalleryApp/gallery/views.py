@@ -27,7 +27,7 @@ def imggallery(request):
 
 #Function to get exif data
 def getexif(file):
-    tags_list = ['EXIF Aperture',
+    tags_list = ['EXIF FNumber',
                           'EXIF ExposureTime',
                           'EXIF ISOSpeedRatings',
                           'Image Model']
@@ -37,6 +37,16 @@ def getexif(file):
         exifvalues=[]
         for tag in tags.keys():
             if tag in tags_list:
-                exifvalues.append(str(tag)+" : "+str(tags[tag]))
+                if 'EXIF' in tag:
+                    tagname = str(tag).split(" ")[1]
+                else:
+                    tagname = str(tag)
+                exifvalues.append(tagname+" : "+str(tags[tag]))
         return exifvalues
-    # print(exifdata)
+
+
+
+#EXIF Upload page
+def exifupload(request):
+    return render(request, 'exif.html',)
+    

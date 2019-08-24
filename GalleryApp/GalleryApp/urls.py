@@ -19,5 +19,6 @@ from gallery import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gallery/', views.imggallery)
+    path('gallery/', views.imggallery),
+    path('exif/', views.exifupload)
 ]
