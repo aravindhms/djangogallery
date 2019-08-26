@@ -1,1 +1,1 @@
-web: python manage.py runserver
+web: python GalleryApp/manage.py runserver
