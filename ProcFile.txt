@@ -1,1 +1,1 @@
-web: manage.py runserver
+web: gunicorn GalleryApp.wsgi --log-file -
