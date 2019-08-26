@@ -52,7 +52,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'GalleryApp.urls'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-tempath = os.path.join(PROJECT_ROOT, 'gallery/templates/capture/')
+tempath = os.path.join(PROJECT_ROOT, '../gallery/templates/capture/')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
