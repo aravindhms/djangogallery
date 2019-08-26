@@ -1,1 +1,1 @@
-web: python GalleryApp/manage.py runserver
+web: python GalleryApp/manage.py runserver 0.0.0.0:$PORT
