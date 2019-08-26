@@ -1,4 +1,5 @@
 # Django Image Gallery and EXIF Generater
-**Work in Progress
-Personal Django Project.
-A photo gallery and exif generator using Django
+Live Demo : https://msgalleryapp.herokuapp.com/  
+**Work in Progress  
+Personal Django Project.  
+A photo gallery and exif generator using Django  
