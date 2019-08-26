@@ -51,11 +51,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'GalleryApp.urls'
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 tempath = os.path.join(PROJECT_ROOT, 'gallery/templates/capture/')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['gallery/templates/capture/'],
+        'DIRS': ['gallery/templates/capture/',tempath],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,7 +124,7 @@ STATICFILES_DIRS = (
      os.path.join(BASE_DIR, 'gallery//static'),
 )
 django_heroku.settings(locals())
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 TEMPLATE_DIRS = (
