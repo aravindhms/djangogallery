@@ -1,1 +1,1 @@
-web: gunicorn GalleryApp.wsgi
+web: manage.py runserver
