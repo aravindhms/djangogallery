@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.template import loader
 from django import forms
+from django.core.files.storage import FileSystemStorage 
 from GalleryApp import settings
 import os
 import exifread
+from base64 import b64encode
+
+
 
 # Get a list of all '.jpg' files from specified directory
 def imggallery(request):
@@ -16,12 +20,34 @@ def imggallery(request):
                 fileurl=settings.STATIC_URL+"images/"+file
                 exifdata = getexif(os.path.join(imgpath,file))
                 allimages.update({fileurl : exifdata})
-    print(allimages)
     return render(request, 'gallery.html',context={'allimages':allimages})
 
 
 ######################TODO######################
 #Get exif data from user upload files
+
+
+def exifupload(request): 
+    if request.method == 'POST' and request.FILES['myfile']: 
+        myfile = request.FILES['myfile']
+        tags = exifread.process_file(myfile)
+        exifvalues=[]
+        for tag in tags.keys():
+            if 'EXIF' in tag:
+                tagname = str(tag).split(" ")[1]
+            else:
+                tagname = str(tag)
+            exifvalues.append(tagname+" : "+str(tags[tag]))
+        fs = FileSystemStorage(location='gallery/static/temp') 
+        filename = fs.save(myfile.name, myfile)
+        up_path=os.path.join('temp/', filename) 
+        return render(request, 'exifdata.html', { 
+                'exifvalues': exifvalues,
+                'img' : up_path
+        }) 
+    print("hhh")
+    return render(request, 'exifdata.html') 
+
 #Add Get exif data for own pics
 ################################################
 
@@ -47,6 +73,6 @@ def getexif(file):
 
 
 #EXIF Upload page
-def exifupload(request):
-    return render(request, 'exif.html',)
+def testexifupload(request):
+    return render(request, 'exifdata.html',)
     
