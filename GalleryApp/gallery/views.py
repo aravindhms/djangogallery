@@ -28,22 +28,29 @@ def imggallery(request):
 
 
 def exifupload(request): 
-    if request.method == 'POST' and request.FILES['myfile']: 
-        myfile = request.FILES['myfile']
+    if request.method == 'POST' and request.FILES['upfile']: 
+        encoded = b64encode(request.FILES['upfile'].read()).decode('ascii')
+        mime = "image/jpeg"
+        uri = "data:%s;base64,%s" % (mime, encoded)
+        myfile = request.FILES['upfile']
+        print(myfile.size)
         tags = exifread.process_file(myfile)
-        exifvalues=[]
-        for tag in tags.keys():
-            if 'EXIF' in tag:
-                tagname = str(tag).split(" ")[1]
-            else:
-                tagname = str(tag)
-            exifvalues.append(tagname+" : "+str(tags[tag]))
-        fs = FileSystemStorage(location='gallery/static/temp') 
-        filename = fs.save(myfile.name, myfile)
-        up_path=os.path.join(settings.STATICFILES_DIRS[0]+'/temp/', filename) 
+        print(tags)
+        exifvalues=[1,1]
+        for exiftag in tags.keys():
+            
+            if 'EXIF' in exiftag:
+                tagname = str(exiftag).split(" ")[1]
+            # else:
+                # tagname = str(tag)
+            exifvalues.append(tagname+" : "+str(tags[exiftag]))
+            
+        # fs = FileSystemStorage(location='gallery/static/temp') 
+        # filename = fs.save(myfile.name, myfile)
+        # up_path=os.path.join(settings.STATICFILES_DIRS[0]+'/temp/', filename) 
         return render(request, 'exifdata.html', { 
                 'exifvalues': exifvalues,
-                'img' : up_path
+                'img' : uri
         }) 
     print("hhh")
     return render(request, 'exifdata.html') 

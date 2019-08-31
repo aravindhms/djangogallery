@@ -130,3 +130,4 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, '../templates'),
 )
+MAX_UPLOAD_SIZE = "5242880"
