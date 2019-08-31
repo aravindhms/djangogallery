@@ -10,7 +10,7 @@ import copy
 
 
 
-# Get a list of all '.jpg' files from specified directory
+# Get a list of all '.jpg' files from specified directory and display as gallery including basic exif details
 def imggallery(request):
     allimages={}
     static_dirs = settings.STATICFILES_DIRS
@@ -25,7 +25,7 @@ def imggallery(request):
 
 
 ######################TODO######################
-#Get exif data from user upload files
+#Display exif data from user upload files
 
 
 def exifupload(request): 
@@ -46,10 +46,6 @@ def exifupload(request):
             else:
                 tagname = str(exiftag)
             exifvalues.append(tagname+" : "+str(tags[exiftag]))
-            
-        # fs = FileSystemStorage(location='gallery/static/temp') 
-        # filename = fs.save(myfile.name, myfile)
-        # up_path=os.path.join(settings.STATICFILES_DIRS[0]+'/temp/', filename) 
         return render(request, 'exifdata.html', { 
                 'exifvalues': exifvalues,
                 'img' : uri
@@ -57,8 +53,6 @@ def exifupload(request):
     print("hhh")
     return render(request, 'exifdata.html') 
 
-#Add Get exif data for own pics
-################################################
 
 #Function to get exif data
 def getexif(file):
