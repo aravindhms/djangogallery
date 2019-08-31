@@ -1,4 +1,7 @@
 # Django Image Gallery and EXIF Generater **Work in Progress  
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/385b73ee818240fbbeeeff60314f3134)](https://app.codacy.com/app/aravindhms/django?utm_source=github.com&utm_medium=referral&utm_content=aravindhms/django&utm_campaign=Badge_Grade_Dashboard)
+
 Live Demo : https://msgalleryapp.herokuapp.com/  
   
 Personal Django Project.  
