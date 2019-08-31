@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.template import loader
+from django import forms
 from django.core.files.storage import FileSystemStorage 
 from GalleryApp import settings
 import os
@@ -12,8 +14,8 @@ import copy
 def imggallery(request):
     allimages={}
     static_dirs = settings.STATICFILES_DIRS
-    for imdir in static_dirs:
-        imgpath = os.path.join(imdir,'images')
+    for dir in static_dirs:
+        imgpath = os.path.join(dir,'images')
         for file in os.listdir(imgpath):
             if file.endswith(".jpg"):
                 fileurl=settings.STATIC_URL+"images/"+file
