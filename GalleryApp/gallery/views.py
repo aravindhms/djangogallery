@@ -40,7 +40,7 @@ def exifupload(request):
             exifvalues.append(tagname+" : "+str(tags[tag]))
         fs = FileSystemStorage(location='gallery/static/temp') 
         filename = fs.save(myfile.name, myfile)
-        up_path=os.path.join('temp/', filename) 
+        up_path=os.path.join(settings.STATICFILES_DIRS[0]+'/temp/', filename) 
         return render(request, 'exifdata.html', { 
                 'exifvalues': exifvalues,
                 'img' : up_path
