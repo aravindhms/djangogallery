@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.template import loader
-from django import forms
-from django.core.files.storage import FileSystemStorage 
+from django.core.files.storage import FileSystemStorage
 from GalleryApp import settings
 import os
 import exifread
@@ -14,8 +12,8 @@ import copy
 def imggallery(request):
     allimages={}
     static_dirs = settings.STATICFILES_DIRS
-    for dir in static_dirs:
-        imgpath = os.path.join(dir,'images')
+    for imgdir in static_dirs:
+        imgpath = os.path.join(imdir,'images')
         for file in os.listdir(imgpath):
             if file.endswith(".jpg"):
                 fileurl=settings.STATIC_URL+"images/"+file
@@ -28,8 +26,8 @@ def imggallery(request):
 #Display exif data from user upload files
 
 
-def exifupload(request): 
-    if request.method == 'POST' and request.FILES['upfile']: 
+def exifupload(request):
+    if request.method == 'POST' and request.FILES['upfile']:
         myfile = copy.deepcopy(request.FILES['upfile'])
         encoded = b64encode(request.FILES['upfile'].read()).decode('ascii')
         mime = "image/jpeg"
@@ -40,18 +38,17 @@ def exifupload(request):
         print()
         exifvalues=[]
         for exiftag in tags.keys():
-            
-            if 'EXIF' in exiftag:
+             if 'EXIF' in exiftag:
                 tagname = str(exiftag).split(" ")[1]
             else:
                 tagname = str(exiftag)
             exifvalues.append(tagname+" : "+str(tags[exiftag]))
-        return render(request, 'exifdata.html', { 
+        return render(request, 'exifdata.html', {
                 'exifvalues': exifvalues,
                 'img' : uri
-        }) 
+        })
     print("hhh")
-    return render(request, 'exifdata.html') 
+    return render(request, 'exifdata.html')
 
 
 #Function to get exif data
