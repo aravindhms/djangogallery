@@ -6,6 +6,7 @@ from GalleryApp import settings
 import os
 import exifread
 from base64 import b64encode
+import copy
 
 
 
@@ -29,20 +30,21 @@ def imggallery(request):
 
 def exifupload(request): 
     if request.method == 'POST' and request.FILES['upfile']: 
+        myfile = copy.deepcopy(request.FILES['upfile'])
         encoded = b64encode(request.FILES['upfile'].read()).decode('ascii')
         mime = "image/jpeg"
         uri = "data:%s;base64,%s" % (mime, encoded)
-        myfile = request.FILES['upfile']
+        
         print(myfile.size)
         tags = exifread.process_file(myfile)
-        print(tags)
-        exifvalues=[1,1]
+        print()
+        exifvalues=[]
         for exiftag in tags.keys():
             
             if 'EXIF' in exiftag:
                 tagname = str(exiftag).split(" ")[1]
-            # else:
-                # tagname = str(tag)
+            else:
+                tagname = str(exiftag)
             exifvalues.append(tagname+" : "+str(tags[exiftag]))
             
         # fs = FileSystemStorage(location='gallery/static/temp') 
