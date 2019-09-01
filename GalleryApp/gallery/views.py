@@ -13,7 +13,7 @@ def imggallery(request):
     allimages={}
     static_dirs = settings.STATICFILES_DIRS
     for imgdir in static_dirs:
-        imgpath = os.path.join(imdir,'images')
+        imgpath = os.path.join(imdgir,'images')
         for file in os.listdir(imgpath):
             if file.endswith(".jpg"):
                 fileurl=settings.STATIC_URL+"images/"+file
