@@ -38,7 +38,7 @@ def exifupload(request):
         print()
         exifvalues=[]
         for exiftag in tags.keys():
-             if 'EXIF' in exiftag:
+            if 'EXIF' in exiftag:
                 tagname = str(exiftag).split(" ")[1]
             else:
                 tagname = str(exiftag)
