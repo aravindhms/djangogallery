@@ -22,7 +22,7 @@ def imggallery(request):
     return render(request, 'gallery.html',context={'allimages':allimages})
 
 
-######################TODO######################
+
 #Display exif data from user upload files
 
 
@@ -51,7 +51,8 @@ def exifupload(request):
     return render(request, 'exifdata.html')
 
 
-#Function to get exif data
+#Function to get exif data of gallery images
+
 def getexif(file):
     tags_list = ['EXIF FNumber',
                           'EXIF ExposureTime',
@@ -69,10 +70,3 @@ def getexif(file):
                     tagname = str(tag)
                 exifvalues.append(tagname+" : "+str(tags[tag]))
         return exifvalues
-
-
-
-#EXIF Upload page
-def testexifupload(request):
-    return render(request, 'exifdata.html',)
-    
