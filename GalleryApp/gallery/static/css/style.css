@@ -7332,7 +7332,7 @@ h1, h2, h3, h4, h5,
   '''background: #006ead;'''
 
 background: rgb(34,148,195);
-background: linear-gradient(345deg, rgba(34,148,195,1) 0%, rgba(135,101,178,1) 46%, rgb(253, 45, 157) 100%);
+background: linear-gradient(345deg, rgb(14, 159, 217) 0%, rgb(159, 99, 245) 46%, rgb(184, 64, 128) 100%);
 
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
