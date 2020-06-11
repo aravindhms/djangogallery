@@ -7331,8 +7331,8 @@ h1, h2, h3, h4, h5,
   z-index: 1001;
   '''background: #006ead;'''
 
-  background: rgb(9,86,121);
-background: linear-gradient(90deg, rgba(9,86,121,0.9023984593837535) 0%, rgba(0,212,255,1) 100%);
+background: rgb(34,148,195);
+background: linear-gradient(345deg, rgba(34,148,195,1) 0%, rgba(135,101,178,1) 46%, rgba(253,45,157,1) 100%);
 
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
