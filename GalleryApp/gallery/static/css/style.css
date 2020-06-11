@@ -7329,7 +7329,11 @@ h1, h2, h3, h4, h5,
   right: 0;
   overflow-y: hidden;
   z-index: 1001;
-  background: #006ead;
+  '''background: #006ead;'''
+
+  background: rgb(9,86,121);
+background: linear-gradient(90deg, rgba(9,86,121,0.9023984593837535) 0%, rgba(0,212,255,1) 100%);
+
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
