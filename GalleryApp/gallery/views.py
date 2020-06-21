@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.core.files.storage import FileSystemStorage
 from GalleryApp import settings
 import os
 import exifread
@@ -33,7 +32,6 @@ def exifupload(request):
         encoded = b64encode(request.FILES['upfile'].read()).decode('ascii')
         mime = "image/jpeg"
         uri = "data:%s;base64,%s" % (mime, encoded)
-        
         print(myfile.size)
         tags = exifread.process_file(myfile)
         print(tags)
