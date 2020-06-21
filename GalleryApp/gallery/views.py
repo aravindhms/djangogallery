@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from GalleryApp import settings
 import os
-import exifread
 from base64 import b64encode
-import copy
 
+import exifread
+from django.shortcuts import render
+
+from GalleryApp import settings
 
 
 # Get a list of all '.jpg' files from specified directory and display as gallery including basic exif details
