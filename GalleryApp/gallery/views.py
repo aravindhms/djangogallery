@@ -28,14 +28,15 @@ def imggallery(request):
 
 def exifupload(request):
     if request.method == 'POST' and request.FILES['upfile']:
-        myfile = copy.deepcopy(request.FILES['upfile'])
+        # myfile = copy.deepcopy(request.FILES['upfile'])
+        myfile = request.FILES['upfile']
         encoded = b64encode(request.FILES['upfile'].read()).decode('ascii')
         mime = "image/jpeg"
         uri = "data:%s;base64,%s" % (mime, encoded)
         
         print(myfile.size)
         tags = exifread.process_file(myfile)
-        print()
+        print(tags)
         exifvalues=[]
         for exiftag in tags.keys():
             if 'EXIF' in exiftag:
