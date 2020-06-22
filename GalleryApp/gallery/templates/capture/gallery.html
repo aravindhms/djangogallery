@@ -6,17 +6,21 @@
 	<div class="row no-gutters">
 
 		{% for image,exifdata in allimages.items %}
+        <div class="col-6 col-md-6 col-lg-8" data-aos="fade-up" data-aos-delay="200">
+          <a href="single.html" class="d-block photo-item">
+            <img src="{{ image }}" alt="Image" class="img-fluid">
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              <h3 class="heading">EXIF</h3>
+				  {% for value in exifdata %}
+              <span class="meta">{{ value }}</span>
+				  {% endfor %}
+            </div>
+            </div>
+          </a>
+        </div>
 
-		<div class="col-md-4 ftco-animate">
-			<a href="{{ image }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ image }});">
-				<div class="overlay"></div>
-				<div class="text text-center">
-					{% for value in exifdata %}
-					<span class="tag">{{ value }}</span><br>
-					{% endfor %}
-				</div>
-			</a>
-		</div>
+
 
 {% endfor %}
 
