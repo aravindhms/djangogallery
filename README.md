@@ -1,7 +1,5 @@
 # Django Image Gallery and EXIF Generater **Work in Progress  
 
-
-
 ![GitHub last commit](https://img.shields.io/github/last-commit/aravindhms/django)  
 
 Live Demo : https://msgalleryapp.herokuapp.com/  
