@@ -2,7 +2,7 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/aravindhms/django)  
 
-Live Demo : https://msgalleryapp.herokuapp.com/  
+Live Demo : https://djangogallery.onrender.com/  
   
 Personal Django Project.  
 A personal photo gallery using Python Django framework. Also includes photography tools such as EXIF
